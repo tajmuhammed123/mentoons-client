@@ -23,7 +23,7 @@ function ChatUserProvider({ children }) {
     
 
     // if (!userInfo) navigate("/");
-  }, []);
+  }, [initialChatState]);
 
   return (
     <ChatContext.Provider
