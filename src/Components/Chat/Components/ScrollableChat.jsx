@@ -1,8 +1,6 @@
 import { useEffect, useRef } from "react";
 import { ChatState } from "./Context/ChatProvider";
 import {
-  isLastMessage,
-  isSameSender,
   isSameSenderMargin,
   isSameUser,
 } from "../Config/ChatLogistics";

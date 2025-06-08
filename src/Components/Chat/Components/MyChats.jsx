@@ -44,7 +44,7 @@ const MyChats = ({ fetchAgain }) => {
   useEffect(() => {
     setLoggedUser(JSON.parse(localStorage.getItem("userInfo")));
     fetchChats();
-  }, [fetchAgain]);
+  }, [fetchAgain, fetchChats]);
 
   // if (isLoading) return <Spinner />;
 
@@ -67,7 +67,7 @@ const MyChats = ({ fetchAgain }) => {
         <div className="flex flex-col p-3 bg-gray-100 w-full h-full rounded-lg overflow-y-auto">
           {chats && chats.length > 0 ? (
             <div className="flex flex-col gap-2">
-              {chats.map((chat,index) => {
+              {chats.map((chat, index) => {
                 return (
                   <div
                     key={chat._id}
