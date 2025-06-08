@@ -15,7 +15,6 @@ const ChatList = () => {
 
     window.addEventListener("resize", handleResize);
 
-    // Cleanup
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 

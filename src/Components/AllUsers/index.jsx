@@ -28,7 +28,6 @@ function AllUsers() {
   useEffect(() => {
     fetchUsers();
   }, []);
-
   const fetchUsers = async () => {
     try {
       const userInfo = JSON.parse(localStorage.getItem("userInfo"));
@@ -43,6 +42,7 @@ function AllUsers() {
       console.error("Error fetching users:", error);
     }
   };
+
 
   const handleConnect = async (receiverId) => {
     try {
@@ -303,9 +303,10 @@ function AllUsers() {
                   {!user.isBlocked && (
                     <Tooltip content="Block">
                       <button
-                        onClick={() => (
-                          setBlockModal(true), setSelectedId(user._id)
-                        )}
+                        onClick={() => {
+                          setBlockModal(true);
+                          setSelectedId(user._id);
+                        }}
                         className="mx-2"
                       >
                         <img
@@ -319,9 +320,10 @@ function AllUsers() {
                   {user.isBlocked && (
                     <Tooltip content="Unblock">
                       <button
-                        onClick={() => (
-                          setUnblockModal(true), setSelectedId(user._id)
-                        )}
+                        onClick={() => {
+                          setUnblockModal(true);
+                          setSelectedId(user._id);
+                        }}
                         className="mx-2"
                       >
                         <img
@@ -334,9 +336,10 @@ function AllUsers() {
                   )}
                   <Tooltip content="Report">
                     <button
-                      onClick={() => (
-                        setReportModal(true), setSelectedId(user._id)
-                      )}
+                      onClick={() => {
+                        setReportModal(true);
+                        setSelectedId(user._id);
+                      }}
                       className="mx-2"
                     >
                       <img
