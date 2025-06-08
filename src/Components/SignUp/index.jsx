@@ -135,7 +135,7 @@ function SignUp() {
           <Typography color="white" className="mt-6 text-center font-normal">
             Already have an account?{" "}
             <a
-              onClick={() => navigate("/login")}
+              href="/login"
               className="font-medium text-blue-500 hover:text-blue-700"
             >
               Sign In

@@ -19,32 +19,31 @@ const MyChats = ({ fetchAgain }) => {
     });
   };
 
-  const fetchChats = async () => {
-    try {
-      setIsLoading(true);
-      const userInfo = JSON.parse(localStorage.getItem("userInfo"));
-      const config = {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${userInfo.token.token}`,
-        },
-      };
-      const userId = user.user._id;
-      const { data } = await axiosUserInstance.get(
-        `/fetchchat/${userId}`,
-        config
-      );
-      setChats(data);
-      setIsLoading(false);
-    } catch (error) {
-      GenerateError("Failed to load chats");
-    }
-  };
-
   useEffect(() => {
     setLoggedUser(JSON.parse(localStorage.getItem("userInfo")));
+    const fetchChats = async () => {
+      try {
+        setIsLoading(true);
+        const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+        const config = {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${userInfo.token.token}`,
+          },
+        };
+        const userId = user.user._id;
+        const { data } = await axiosUserInstance.get(
+          `/fetchchat/${userId}`,
+          config
+        );
+        setChats(data);
+        setIsLoading(false);
+      } catch (error) {
+        GenerateError("Failed to load chats");
+      }
+    };
     fetchChats();
-  }, [fetchAgain, fetchChats]);
+  }, [fetchAgain]);
 
   // if (isLoading) return <Spinner />;
 
